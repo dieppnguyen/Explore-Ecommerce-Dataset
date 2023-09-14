@@ -14,5 +14,29 @@ In this project, I focused on data exploration and calculation of several metric
   - Log in to your Google Cloud Platform account and create a new project.
   - Navigate to the BigQuery console and select your newly created project.
   - In the navigation panel, select "Add Data" and then "Search a project".
-  - Enter the project ID "bigquery-public-data.google_analytics_sample.ga_sessions" and click "Enter".
-  - Click on the "ga_sessions_" table to open it.
+  - Enter the project ID ***"bigquery-public-data.google_analytics_sample.ga_sessions"*** and click "Enter".
+  - Click on the ***"ga_sessions_"*** table to open it.
+ 
+## 08 queries in Bigquery based on the Google Analytics dataset I wrote
+
+**Query 1**
+
+```WITH sub AS (
+  SELECT *, 
+    PARSE_DATE('%Y%m%d', date) AS date1
+  FROM `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`
+  WHERE
+  _table_suffix BETWEEN '0101'AND '0331'
+)
+
+SELECT 
+ FORMAT_DATE('%Y%m', date1)AS month,
+  COUNT(totals.visits) AS visits,
+  SUM (totals.pageviews) AS pageviews,
+  SUM (totals.transactions) AS transactions
+FROM
+  sub
+GROUP BY
+  month
+ORDER BY
+  month;```
