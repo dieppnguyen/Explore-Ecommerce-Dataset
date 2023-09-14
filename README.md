@@ -21,7 +21,8 @@ In this project, I focused on data exploration and calculation of several metric
 
 ### Query 1
 
-```WITH sub AS (
+```
+WITH sub AS (
   SELECT *, 
     PARSE_DATE('%Y%m%d', date) AS date1
   FROM `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`
@@ -49,7 +50,7 @@ Result table:
 ### Query 2
 
 ```
-  SELECT 
+SELECT 
   trafficSource.source AS source,
   COUNT (totals.bounces) AS total_no_of_bounces,
   COUNT (totals.visits) AS total_visits,
@@ -65,7 +66,8 @@ Result table:
 
 ### Query 3
 
-```WITH sub1 AS (
+```
+WITH sub1 AS (
   SELECT *,
   PARSE_DATE('%Y%m%d', date) AS date1
   FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201706*`
@@ -109,7 +111,7 @@ Result table:
 ### Query 4
 
 ```
-  SELECT
+SELECT
   FORMAT_DATE ("%Y%m", PARSE_DATE ("%Y%m%d", date)) AS month, 
   ROUND(SUM (CASE WHEN totals.transactions >= 1 AND product.productRevenue IS NOT NULL THEN totals.pageviews END) / COUNT (DISTINCT (CASE
             WHEN totals.transactions >= 1 AND product.productRevenue IS NOT NULL THEN fullVisitorId
@@ -135,7 +137,7 @@ Result table:
 ### Query 5
 
 ```
-  SELECT 
+SELECT 
   FORMAT_DATE ("%Y%m", PARSE_DATE ("%Y%m%d", date)) AS month,
   SUM (totals.transactions)/ COUNT (DISTINCT fullVisitorId) AS Avg_total_transactions_per_user
 FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201707*`,
@@ -152,7 +154,7 @@ Result table:
 ### Query 6 
 
 ```
-  SELECT 
+SELECT 
 
   FORMAT_DATE ("%Y%m", PARSE_DATE ("%Y%m%d", date)) AS month,
 
@@ -175,7 +177,8 @@ Result table:
 
 ### Query 7
 
-```WITH sub AS (
+```
+WITH sub AS (
   SELECT DISTINCT fullVisitorId
   FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201707*`,
 UNNEST (hits) hits,
@@ -209,7 +212,7 @@ Result table:
 ### Query 8
 
 ```
-  SELECT
+SELECT
 
   FORMAT_DATE ("%Y%m", PARSE_DATE ("%Y%m%d", date)) AS month,
 
