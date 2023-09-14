@@ -39,4 +39,4 @@ FROM
 GROUP BY
   month
 ORDER BY
-  month;```
+  month; ```
