@@ -48,6 +48,22 @@ Result table:
 
 ### Query 2
 
+```SELECT 
+  trafficSource.source AS source,
+  COUNT (totals.bounces) AS total_no_of_bounces,
+  COUNT (totals.visits) AS total_visits,
+  ROUND((COUNT (totals.bounces) / COUNT (totals.visits) * 100),7) AS bounce_rate
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201707*` 
+GROUP BY trafficSource.source
+ORDER BY source;
+
+Result table:
+
+![c2](https://github.com/dieppnguyen/Explore-Ecommerce-Dataset/assets/142650906/1eea41b5-25cf-4427-93a6-681037e30ac4)
+
+### Query 3
+
+
 
 
 
