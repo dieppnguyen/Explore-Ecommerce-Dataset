@@ -19,7 +19,7 @@ In this project, I focused on data exploration and calculation of several metric
  
 ## 08 queries in Bigquery based on the Google Analytics dataset I wrote
 
-**Query 1**
+### Query 1
 
 ```WITH sub AS (
   SELECT *, 
@@ -39,4 +39,15 @@ FROM
 GROUP BY
   month
 ORDER BY
-  month; ```
+  month;
+```
+
+Result table:
+
+![c1](https://github.com/dieppnguyen/Explore-Ecommerce-Dataset/assets/142650906/898668ac-e95a-40ca-ba19-cd2f44a15cbd)
+
+### Query 2
+
+
+
+
