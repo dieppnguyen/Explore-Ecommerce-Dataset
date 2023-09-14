@@ -19,7 +19,7 @@ In this project, I focused on data exploration and calculation of several metric
  
 ## 08 queries in Bigquery based on the Google Analytics dataset I wrote
 
-### Query 1
+### Query 1. Calculate total visit, pageview, transaction for Jan, Feb and March 2017 (order by month)
 
 ```
 WITH sub AS (
@@ -47,7 +47,7 @@ Result table:
 
 ![c1](https://github.com/dieppnguyen/Explore-Ecommerce-Dataset/assets/142650906/898668ac-e95a-40ca-ba19-cd2f44a15cbd)
 
-### Query 2
+### Query 2. Bounce rate per traffic source in July 2017 (Bounce_rate = num_bounce/total_visit) (order by total_visit DESC)
 
 ```
 SELECT 
@@ -64,7 +64,7 @@ Result table:
 
 ![c2](https://github.com/dieppnguyen/Explore-Ecommerce-Dataset/assets/142650906/1eea41b5-25cf-4427-93a6-681037e30ac4)
 
-### Query 3
+### Query 3. Revenue by traffic source by week, by month in June 2017
 
 ```
 WITH sub1 AS (
@@ -108,7 +108,7 @@ Result table:
 
 ![c3](https://github.com/dieppnguyen/Explore-Ecommerce-Dataset/assets/142650906/f09a6b04-7a73-46a5-bbb2-dc28888dfb2a)
 
-### Query 4
+### Query 4. Average number of pageviews by purchaser type (purchasers vs non-purchasers) in June, July 2017.
 
 ```
 SELECT
@@ -134,7 +134,7 @@ Result table:
 
 ![c4](https://github.com/dieppnguyen/Explore-Ecommerce-Dataset/assets/142650906/d5c4ee15-32e2-4fd4-adce-328f420d4716)
 
-### Query 5
+### Query 5. Average number of transactions per user that made a purchase in July 2017
 
 ```
 SELECT 
@@ -151,7 +151,7 @@ Result table:
 
 ![c5](https://github.com/dieppnguyen/Explore-Ecommerce-Dataset/assets/142650906/c7293c8f-bf29-432d-a848-040e297f2c28)
 
-### Query 6 
+### Query 6. Average amount of money spent per session. Only include purchaser data in July 2017
 
 ```
 SELECT 
@@ -175,7 +175,7 @@ Result table:
 
 ![c6](https://github.com/dieppnguyen/Explore-Ecommerce-Dataset/assets/142650906/120d9933-2625-408c-b826-90c3046f71a8)
 
-### Query 7
+### Query 7. Other products purchased by customers who purchased product "YouTube Men's Vintage Henley" in July 2017. Output should show product name and the quantity was ordered.
 
 ```
 WITH sub AS (
@@ -209,7 +209,8 @@ Result table:
 
 ![c7](https://github.com/dieppnguyen/Explore-Ecommerce-Dataset/assets/142650906/7ed102b9-bd34-4cf2-b39b-f5df1ae247bd)
 
-### Query 8
+### Query 8. Calculate cohort map from product view to addtocart to purchase in Jan, Feb and March 2017. *(For example, 100% product view then 40% add_to_cart and 10% purchase. Add_to_cart_rate = number product  add to cart/number product view. Purchase_rate = number product purchase/number product view)*. The output should be calculated in product level.
+
 
 ```
 SELECT
